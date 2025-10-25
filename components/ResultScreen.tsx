@@ -32,32 +32,38 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
       return "Keep trying! Every quiz is a learning opportunity.";
     };
     return (
-      <div className="text-center bg-slate-900/60 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-2xl ring-1 ring-white/10">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-slate-100">Quiz Complete!</h1>
-        <p className="text-xl text-slate-400 mb-6">Your final score is</p>
-        
-        <div className="relative w-48 h-48 mx-auto mb-6 flex items-center justify-center">
-          <svg className="w-full h-full" viewBox="0 0 100 100">
-              <circle className="text-slate-800" strokeWidth="8" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
-              <circle
-                  className="text-emerald-400"
-                  strokeWidth="8"
-                  strokeDasharray={2 * Math.PI * 45}
-                  strokeDashoffset={(2 * Math.PI * 45) * (1 - (percentage || 0) / 100)}
-                  strokeLinecap="round"
-                  stroke="currentColor"
-                  fill="transparent"
-                  r="45"
-                  cx="50"
-                  cy="50"
-                  style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%', transition: 'stroke-dashoffset 1s ease-out' }}
-              />
-          </svg>
-          <span className="absolute text-5xl font-bold text-white">{percentage || 0}%</span>
+      <div className="text-center bg-slate-900/60 backdrop-blur-sm rounded-2xl p-4 sm:p-8 shadow-2xl ring-1 ring-white/10 w-full">
+        <h1 className="text-3xl md:text-4xl font-extrabold mb-2 text-slate-100">Quiz Complete!</h1>
+        <p className="text-lg text-slate-400 mb-4 max-w-md mx-auto">{getResultMessage()}</p>
+
+        <div className="bg-slate-900/50 rounded-xl p-4 mb-6 flex items-center justify-around max-w-sm mx-auto">
+          <div>
+            <p className="text-slate-400 text-sm">SCORE</p>
+            <p className="text-3xl font-bold text-white">{score} / {totalQuestions}</p>
+          </div>
+          <div>
+            <p className="text-slate-400 text-sm">ACCURACY</p>
+            <p className="text-3xl font-bold text-emerald-400">{percentage}%</p>
+          </div>
         </div>
         
-        <p className="text-2xl font-semibold mb-4 text-slate-100">{score} / {totalQuestions}</p>
-        <p className="text-lg text-slate-400 mb-8 max-w-md mx-auto">{getResultMessage()}</p>
+        <div className="space-y-3 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar mb-6">
+          {answerRecords.map((record, index) => (
+            <div key={index} className="flex items-center gap-4 bg-slate-800/80 p-3 rounded-lg border border-slate-700/50">
+              <img src={record.question.flagUrl} alt={`${record.question.correctAnswer.name} flag`} className="w-16 h-10 object-cover rounded shadow-md" />
+              <div className="flex-1 text-left">
+                <p className="font-bold text-slate-100">{record.question.correctAnswer.name}</p>
+                <p className={`text-sm ${record.isCorrect ? 'text-slate-400' : 'text-red-400'}`}>
+                  Your answer: {record.userAnswer}
+                </p>
+              </div>
+              {record.isCorrect 
+                ? <CheckIcon className="w-8 h-8 flex-shrink-0 text-green-500" /> 
+                : <XIcon className="w-8 h-8 flex-shrink-0 text-red-500" />
+              }
+            </div>
+          ))}
+        </div>
         
         <button
           onClick={onPlayAgain}
