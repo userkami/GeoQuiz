@@ -1,8 +1,8 @@
 import React from 'react';
-import type { AnswerRecord, GameMode, Player } from '../types';
-import CheckIcon from './icons/CheckIcon';
-import XIcon from './icons/XIcon';
-import TrophyIcon from './icons/TrophyIcon';
+import type { AnswerRecord, GameMode, Player } from '../types.ts';
+import CheckIcon from './icons/CheckIcon.tsx';
+import XIcon from './icons/XIcon.tsx';
+import TrophyIcon from './icons/TrophyIcon.tsx';
 
 interface ResultScreenProps {
   onPlayAgain: () => void;

@@ -1,6 +1,6 @@
 import React, { useState, useRef, FormEvent } from 'react';
-import XIcon from './icons/XIcon';
-import UsersIcon from './icons/UsersIcon';
+import XIcon from './icons/XIcon.tsx';
+import UsersIcon from './icons/UsersIcon.tsx';
 
 interface PartySetupScreenProps {
   onStart: (playerNames: string[], duration: number) => void;

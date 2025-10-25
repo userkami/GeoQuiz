@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import type { Question, GameMode } from '../types';
-import CheckIcon from './icons/CheckIcon';
-import XIcon from './icons/XIcon';
+import type { Question, GameMode } from '../types.ts';
+import CheckIcon from './icons/CheckIcon.tsx';
+import XIcon from './icons/XIcon.tsx';
 
 interface GameScreenProps {
   question: Question;

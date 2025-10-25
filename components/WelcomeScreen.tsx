@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import GlobeIcon from './icons/GlobeIcon';
-import UsersIcon from './icons/UsersIcon';
-import type { GameMode } from '../types';
+import GlobeIcon from './icons/GlobeIcon.tsx';
+import UsersIcon from './icons/UsersIcon.tsx';
+import type { GameMode } from '../types.ts';
 
 interface WelcomeScreenProps {
   onStartClassicTimed: (mode: GameMode, duration: number) => void;

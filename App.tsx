@@ -1,12 +1,12 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
-import type { GameState, Question, GameMode, AnswerRecord, Player } from './types';
-import { COUNTRIES, TOTAL_QUESTIONS } from './constants';
-import { shuffleArray } from './utils/helpers';
-import WelcomeScreen from './components/WelcomeScreen';
-import GameScreen from './components/GameScreen';
-import ResultScreen from './components/ResultScreen';
-import PartySetupScreen from './components/PartySetupScreen';
-import TurnStartScreen from './components/TurnStartScreen';
+import type { GameState, Question, GameMode, AnswerRecord, Player } from './types.ts';
+import { COUNTRIES, TOTAL_QUESTIONS } from './constants.ts';
+import { shuffleArray } from './utils/helpers.ts';
+import WelcomeScreen from './components/WelcomeScreen.tsx';
+import GameScreen from './components/GameScreen.tsx';
+import ResultScreen from './components/ResultScreen.tsx';
+import PartySetupScreen from './components/PartySetupScreen.tsx';
+import TurnStartScreen from './components/TurnStartScreen.tsx';
 
 function App() {
   const [gameState, setGameState] = useState<GameState>('welcome');

@@ -1,5 +1,5 @@
 
-import type { Country } from './types';
+import type { Country } from './types.ts';
 
 export const TOTAL_QUESTIONS = 10;
 

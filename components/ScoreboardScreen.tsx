@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Player } from '../types';
-import TrophyIcon from './icons/TrophyIcon';
+import type { Player } from '../types.ts';
+import TrophyIcon from './icons/TrophyIcon.tsx';
 
 interface ScoreboardScreenProps {
   players: Player[];
